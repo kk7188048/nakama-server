@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Environment variables
+.env
+.env.local
+
+# Local development
+docker-compose.yml
+*.local
+
+# IDE
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
+test.js
+*.log
+npm-debug.log*
+
+client/
+
+# Optional: README for local notes only
+# README.md

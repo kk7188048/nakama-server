@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "ES2018",
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "outDir": "build",
+      "rootDir": "src",
+      "declaration": true,
+      "sourceMap": false
+    },
+    "include": ["src/**/*", "test.js"],
+    "exclude": ["server/node_modules", "build"]
+  }
+  
