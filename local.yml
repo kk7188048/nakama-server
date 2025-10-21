@@ -1,13 +1,16 @@
 name: nakama-tictactoe
+
+database:
+  address:
+    - "postgresql://neondb_owner:npg_LOq5n6abkDCI@ep-morning-fog-adfvh5d7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+
+
 logger:
   level: "debug"
   
 runtime:
   js_entrypoint: "build/main.js"
 
-database:
-  address:
-    - "postgresql://neondb_owner:npg_LOq5n6abkDCI@ep-morning-fog-adfvh5d7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
 
 server:
   http_port: 7350
