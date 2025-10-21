@@ -1,37 +1,76 @@
+# name: nakama-tictactoe
+
+# database:
+#   address:
+#     - "postgresql://neondb_owner:npg_LOq5n6abkDCI@ep-morning-fog-adfvh5d7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+
+
+# logger:
+#   level: "debug"
+  
+# runtime:
+#   js_entrypoint: "build/main.js"
+
+
+# server:
+#   http_port: 7350
+#   grpc_port: 7349
+#   cors:
+#     - "http://localhost:3000"
+#     - "http://localhost:5173"
+#     - "http://127.0.0.1:3000"
+#     - "http://127.0.0.1:5173"
+#     - "https://*.onrender.com"  # ← Add this for Render
+#     - "*"  # ← Add this to allow all origins (for testing)
+
+# console:
+#   port: 7351
+#   username: "admin"
+#   password: "password"
+
+# socket:
+#   server_key: "defaultkey"
+#   port: 7350
+
+# session:
+#   token_expiry_sec: 7200           # 2 hours, per docs recommendation to avoid too-short lifetimes
+#   refresh_token_expiry_sec: 1209600 # 14 days
+
+
 name: nakama-tictactoe
 
+# ✅ CRITICAL: Database configuration
 database:
   address:
-    - "postgresql://neondb_owner:npg_LOq5n6abkDCI@ep-morning-fog-adfvh5d7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-
+    - "postgresql://neondb_owner:npg_LOq5n6abkDCI@ep-morning-fog-adfvh5d7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require"
 
 logger:
-  level: "debug"
+  level: "info"
+  stdout: true
   
 runtime:
+  path: "/nakama/data/modules"
   js_entrypoint: "build/main.js"
-
 
 server:
   http_port: 7350
   grpc_port: 7349
   cors:
-    - "http://localhost:3000"
-    - "http://localhost:5173"
-    - "http://127.0.0.1:3000"
-    - "http://127.0.0.1:5173"
-    - "https://*.onrender.com"  # ← Add this for Render
-    - "*"  # ← Add this to allow all origins (for testing)
+    - "*"
 
 console:
   port: 7351
   username: "admin"
   password: "password"
+  signing_key: "defaultsigningkey"
 
 socket:
   server_key: "defaultkey"
   port: 7350
+  max_message_size_bytes: 4096
 
 session:
-  token_expiry_sec: 7200           # 2 hours, per docs recommendation to avoid too-short lifetimes
-  refresh_token_expiry_sec: 1209600 # 14 days
+  token_expiry_sec: 7200
+  refresh_token_expiry_sec: 1209600
+  encryption_key: "defaultencryptionkey"
+  refresh_encryption_key: "defaultrefreshencryptionkey"

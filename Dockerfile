@@ -36,5 +36,6 @@ COPY local.yml /nakama/data/
 # Expose ports
 EXPOSE 7349 7350 7351
 
-# Start command
-CMD ["/nakama/nakama", "--config", "/nakama/data/local.yml"]
+# ✅ FIX: Pass database URL from local.yml
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["/nakama/nakama migrate up --database.address 'postgresql://neondb_owner:npg_LOq5n6abkDCI@ep-morning-fog-adfvh5d7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require' && exec /nakama/nakama --config /nakama/data/local.yml --database.address 'postgresql://neondb_owner:npg_LOq5n6abkDCI@ep-morning-fog-adfvh5d7-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require'"]
