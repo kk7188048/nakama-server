@@ -454,12 +454,21 @@ function updatePlayerStats(nk: nkruntime.Nakama, logger: nkruntime.Logger, gameS
             }
 
 
+            // nk.leaderboardRecordWrite(
+            //     leaderboardId,
+            //     player.userId,
+            //     username,
+            //     isWinner ? 1 : 0,
+            //     1
+            // );
             nk.leaderboardRecordWrite(
                 leaderboardId,
                 player.userId,
                 username,
-                isWinner ? 1 : 0,
-                1
+                isWinner ? 1 : 0, 
+                1,                 
+                undefined,        
+                undefined         
             );
 
 
