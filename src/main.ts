@@ -442,7 +442,9 @@ function updatePlayerStats(nk: nkruntime.Nakama, logger: nkruntime.Logger, gameS
                 }
             }
             
-          
+          if (isWinner) {
+                gameState.winner = username;
+            }
             nk.leaderboardRecordWrite(
                 leaderboardId,
                 player.userId,
@@ -450,6 +452,7 @@ function updatePlayerStats(nk: nkruntime.Nakama, logger: nkruntime.Logger, gameS
                 isWinner ? 1 : 0, 
                 1
             );
+            
             
             logger.info('Leaderboard updated for %s: username=%s, isWinner=%s', 
                 player.userId, username, isWinner);
